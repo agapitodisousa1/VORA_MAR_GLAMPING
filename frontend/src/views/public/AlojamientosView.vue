@@ -24,7 +24,7 @@
                 <p>{{ alojamiento.tipo }}</p>
                 <p>Capacidad: {{ alojamiento.capacidad }} personas</p>
                 <p><strong>{{ alojamiento.precio_base }}€</strong> / noche</p>
-                <button>RESERVAR</button>
+                <button @click="goReservas">RESERVAR</button>
             </div>
         </section>
         <Footer></Footer>
@@ -37,7 +37,13 @@
     import Header from '@/components/Header.vue';
     import { getAlojamientos } from "@/services/alojamientoService";
     import { ref, onMounted } from 'vue';
+    import { useRouter } from 'vue-router';
+    
     const alojamientos = ref([])
+    const router = useRouter()
+    const goReservas = () => {
+        router.push("/reservas")
+    }
     const fetchAlojamientos = async () => {
 
         try {
