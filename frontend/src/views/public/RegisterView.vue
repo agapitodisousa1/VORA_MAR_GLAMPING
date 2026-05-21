@@ -133,7 +133,7 @@
                 input 
                     padding: 10px
                     border-radius: 10px
-                    border: 1px solid black
+                    border: none
                 .botones
                     @include mixins.flexbox($d: flex, $fd: row, $jc: center , $gap: 2rem )
                     padding-top: 10px
@@ -159,7 +159,21 @@
                             scale: 1.05
                             transition: ease-in-out 0.3s
             .error
+                font-family: variables.$tipografia_texto
                 margin-top: 15px
                 color: red
                 text-align: center
+    @media (max-width: 768px)
+        .main
+            .login
+                .container
+                    width: 60%
+                    .form
+                        .botones
+                            .btn_login
+                                padding: 10px  
+                                font-size: 12px
+                            .btn_register
+                                padding: 10px 
+                                font-size: 12px
 </style>

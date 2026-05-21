@@ -99,41 +99,54 @@
                 border-radius: 12px
                 background: variables.$color_background_principal
                 padding: 1rem
-            .form 
-                @include mixins.flexbox($d: flex , $fd: column , $jc: center , $gap: 11.5px )
-                font-family: variables.$tipografia_texto
-                font-size: 15px
-                input 
-                    padding: 10px
-                    border-radius: 10px
-                    border: 1px solid black
-                .botones
-                    @include mixins.flexbox($d: flex, $fd: row, $jc: center , $gap: 2rem )
-                    padding-top: 10px
-                    .btn_login
-                        padding: 1rem
+                .form 
+                    @include mixins.flexbox($d: flex , $fd: column , $jc: center , $gap: 11.5px )
+                    font-family: variables.$tipografia_texto
+                    font-size: 15px
+                    input 
+                        padding: 10px
+                        border-radius: 10px
                         border: none
-                        border-radius: 12px
-                        background-color: variables.$color_boton_principal
-                        color: variables.$color_background_secundario
-                        cursor: pointer
-                        &:hover 
-                            scale: 1.05 
-                            transition: ease-in-out 0.3s
-                            background: variables.$color_hover_principal
-                    .btn_register
-                        padding: 1rem
-                        border-radius: 12px
-                        border: none
-                        background-color: variables.$color_alternativo
-                        cursor: pointer
-                        color: variables.$color_background_secundario
-                        &:hover
-                            scale: 1.05
-                            transition: ease-in-out 0.3s
-            .error
-                margin-top: 15px
-                color: red
-                text-align: center
-
+                    .botones
+                        @include mixins.flexbox($d: flex, $fd: row, $jc: center , $gap: 2rem )
+                        padding-top: 10px
+                        .btn_login
+                            padding: 1rem
+                            border: none
+                            border-radius: 12px
+                            background-color: variables.$color_boton_principal
+                            color: variables.$color_background_secundario
+                            cursor: pointer
+                            &:hover 
+                                scale: 1.05 
+                                transition: ease-in-out 0.3s
+                                background: variables.$color_hover_principal
+                        .btn_register
+                            padding: 1rem
+                            border-radius: 12px
+                            border: none
+                            background-color: variables.$color_alternativo
+                            cursor: pointer
+                            color: variables.$color_background_secundario
+                            &:hover
+                                scale: 1.05
+                                transition: ease-in-out 0.3s
+                .error
+                    font-family: variables.$tipografia_texto
+                    margin-top: 15px
+                    color: red
+                    text-align: center
+    @media (max-width: 768px)
+        .main
+            .login
+                height: 80vh
+                .container
+                    width: 60%
+                    .form
+                        .botones
+                            .btn_login
+                                padding: 10px 1rem  
+                            .btn_register
+                                padding: 10px 1rem
+                    
 </style>

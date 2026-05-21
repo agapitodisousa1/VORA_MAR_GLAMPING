@@ -120,5 +120,18 @@
                         background: variables.$color_hover_principal
                         scale: 1.03
                         transition: ease-in-out 0.3s
+    @media (max-width: 768px)
+        main
+            .intro
+                @include mixins.flexbox($d: flex, $fd: column , $jc: center , $gap: 10px)
+                align-items: center
+                .texto
+                    font-size: 12px
+                .imagen
+                    img
+                        width: 250px
+            .cards
+                .card
+                    width: 80%
 
-</style>
+</style> 

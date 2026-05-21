@@ -8,12 +8,19 @@ import ReservasAdminView from "../views/admin/ReservasAdminView.vue";
 import ReservasView from "@/views/public/ReservasView.vue";
 import RegisterView from "@/views/public/RegisterView.vue";
 import InstalacionesView from "@/views/public/InstalacionesView.vue";
+import MisReservasView from "@/views/public/MisReservasView.vue";
+import NotFoundView from "../views/public/NotFoundView.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
     component: HomeView
+  },
+  {
+    path: "/mis-reservas",
+    name: "mis-reservas",
+    component: MisReservasView
   },
 
   {
@@ -59,6 +66,11 @@ const routes = [
       requiresAuth: true,
       adminOnly: true
     }
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "404",
+    component: NotFoundView
   }
 ];
 
@@ -67,8 +79,6 @@ const router = createRouter({
   routes
 });
 
-
-// 🔥 Route Guard
 router.beforeEach((to, from, next) => {
 
   const token = localStorage.getItem("token")

@@ -1,7 +1,7 @@
 <template>
     <footer>
         <div class="texto">
-            <p>2026, todos los derechos reservados</p>
+            <p class="copy">2026, todos los derechos reservados</p>
             <p>VORA MAR GLAMPING®</p> 
         </div>
         <div class="icons">
@@ -44,7 +44,18 @@
         .icons
             @include mixins.flexbox($d: flex, $fd: row , $jc: end , $gap: 1rem )
             width: 50%
-            
+    @media (max-width: 768px)  
+        footer
+            padding: 10px 15px 
+            font-size: 12px 
+            .texto
+                padding: 10px 15px
+                @include mixins.flexbox($d: flex, $fd: row , $jc: start, $gap: 2rem )
+                .copy
+                    font-size: 8px
+            .icons
+                @include mixins.flexbox($d: flex , $fd: row , $jc: end, $gap: 8px )
+                      
             
 
         

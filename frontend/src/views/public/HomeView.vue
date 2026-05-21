@@ -197,6 +197,41 @@
                         transition: ease-in-out 0.3s
                         background: variables.$color_hover_principal
 
+    @media (max-width: 768px)
+        .intro
+            padding: 2rem
+        .instalaciones
+            text-align: center
+            .cards
+                .card
+                    min-width: 300px
+                    img
+                        height: 200px
+        .reservas
+            text-align: center
+            @include mixins.flexbox($d: flex , $fd: column, $jc: center , $gap: 0 )
+            text-align: center
+            .texto_btn
+                font-size: 20px
+                @include mixins.flexbox($d: flex, $fd: column , $jc: center, $gap: 10px )
+                align-items: center
+                .texto_reservas
+                    font-size: 20px
+                .div_btn
+                    padding: 2rem
+        .alojamientos
+            text-align: center
+            @include mixins.flexbox($d: flex, $fd: column, $jc: center , $gap: 10px )
+            .texto_img
+                padding: 10px
+                @include mixins.flexbox($d: flex, $fd: column, $jc: center, $gap: 10px )
+                .imagen
+                    min-width: 250px    
+                        
+                
+            
+
+            
 
         
 
