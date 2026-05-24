@@ -69,7 +69,7 @@
     }
     const goLogout = () => {
         logout()
-        window.location.reload()
+        router.push("/login")
     }
     const goDashboard = () => {
         router.push("/admin/dashboard")
