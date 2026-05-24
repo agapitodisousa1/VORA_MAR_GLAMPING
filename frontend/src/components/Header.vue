@@ -68,6 +68,7 @@
     @use "../assets/sass/variables"
     @use "../assets/sass/mixins"
     header
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08)
         @include mixins.flexbox($d: flex , $fd: row , $jc: space-around , $gap:0 )
         position: sticky
         top: 0

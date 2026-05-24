@@ -31,6 +31,7 @@
     @use "../assets/sass/variables"
     @use "../assets/sass/mixins"
     footer
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08)
         padding: 2rem 3rem 
         @include mixins.flexbox($d: flex , $fd: row , $jc: space-around , $gap: 0 )
         align-items: center

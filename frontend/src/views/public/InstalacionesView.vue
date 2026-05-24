@@ -1,9 +1,19 @@
 <template>
-  
+    <main>
+        <Header></Header>
+        <section class="main">
+            
+
+        </section>
+        <Footer></Footer>
+
+    </main>
+    
 </template>
 
 <script setup>
-
+    import Footer from '@/components/Footer.vue'; 
+    import Header from '@/components/Header.vue';      
 
 </script>
 
