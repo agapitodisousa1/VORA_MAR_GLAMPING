@@ -2,17 +2,29 @@
     <main>
         <Header></Header>
         <section class="main">
+            <h1>ESTADÍSTICAS</h1>  
             <div class="stats">
-                <h1>ESTADÍSTICAS</h1>
-                <p><strong>Total reservas: </strong>{{ totalReservas }}</p>
-                <p><strong>Ingresos: </strong>{{ ingresos }}€</p>
-                <p><strong>Usuarios totales: </strong>{{ totalUsuarios }}</p>
-                <p><strong>Alojamientos totales: </strong>{{ totalAlojamientos }}</p>
-                <p><strong>Reservas confirmadas: </strong>{{ confirmadas }}</p>
-                <p><strong>Reservas pendientes: </strong>{{ pendientes }} </p>
-                <p><strong>Reservas canceladas: </strong>{{ canceladas }}</p>
+                <div class="card_stats">
+                    <p><strong>Total reservas: </strong>{{ totalReservas }}</p>
+                    <p><strong>Ingresos: </strong>{{ ingresos }}€</p>
+                </div>
+                <div class="card_stats">
+                    <p><strong>Reservas confirmadas: </strong>{{ confirmadas }}</p>
+                    <p><strong>Reservas pendientes: </strong>{{ pendientes }} </p>
+                    <p><strong>Reservas canceladas: </strong>{{ canceladas }}</p>
+                </div>
+                <div class="card_stats">
+                    <p><strong>Usuarios totales: </strong>{{ totalUsuarios }}</p>
+                </div>
+                <div class="card_stats">
+                    <p><strong>Alojamientos totales: </strong>{{ totalAlojamientos }}</p>
+                </div>
+                
+               
+                
             </div>
             <div class="reservas">
+                <h1>RESERVAS</h1>
                 <div class="card_reservas" v-for="reserva in reservas" :key="reserva.reserva_id">
                     <h2>{{ reserva.usuario }}</h2>
                     <p><strong>Entrada:</strong> {{ reserva.fecha_inicio }}</p>
@@ -99,16 +111,27 @@
             @include mixins.flexbox($d: flex, $fd: column, $jc: center , $gap: 1rem)
             text-align: center
             background: variables.$color_background_principal
+            h1 
+                padding: 1rem
             .stats
                 border-radius: 20px
                 padding: 2rem
                 margin: 1rem
                 background: variables.$color_background_secundario
-                @include mixins.flexbox($d: flex, $fd: column , $jc: center, $gap: 1rem)
-                h1
-                    font-family: variables.$tipografia_titulo
-                p
-                    font-family: variables.$tipografia_texto
+                @include mixins.flexbox($d: flex, $fd: row , $jc: center, $gap: 1rem)
+                flex-wrap: wrap
+                .card_stats
+                    padding: 2rem
+                    border-radius: 20px
+                    background: white
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.08) 
+                    h1
+                        font-family: variables.$tipografia_titulo
+                    p
+                        font-family: variables.$tipografia_texto
+                    &:hover
+                        scale: 1.05
+                        transition: ease-in-out 0.3s
             .reservas
                 background: variables.$color_background_secundario
                 display: flex
