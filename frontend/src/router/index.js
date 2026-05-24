@@ -4,7 +4,6 @@ import HomeView from "../views/public/HomeView.vue";
 import LoginView from "../views/public/LoginView.vue";
 import AlojamientosView from "../views/public/AlojamientosView.vue";
 import DashboardView from "../views/admin/DashboardView.vue";
-import ReservasAdminView from "../views/admin/ReservasAdminView.vue";
 import ReservasView from "@/views/public/ReservasView.vue";
 import RegisterView from "@/views/public/RegisterView.vue";
 import InstalacionesView from "@/views/public/InstalacionesView.vue";
@@ -55,16 +54,6 @@ const routes = [
     meta: {
       requiresAuth: true,
       adminOnly: true 
-    }
-  },
-
-  {
-    path: "/admin/reservas",
-    name: "reservas-admin",
-    component: ReservasAdminView,
-    meta: {
-      requiresAuth: true,
-      adminOnly: true
     }
   },
   {
