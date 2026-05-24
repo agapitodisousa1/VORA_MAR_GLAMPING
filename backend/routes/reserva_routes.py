@@ -52,11 +52,11 @@ def crear_reserva():
         "%Y-%m-%d"
     )
     if fin <= inicio:
-    cursor.close()
-    conn.close()
-    return jsonify({
-        "error": "Fechas inválidas"
-    }), 400
+        cursor.close()
+        conn.close()
+        return jsonify({
+            "error": "Fechas inválidas"
+        }), 400
     noches = (fin - inicio).days
     precio_total = (
         alojamiento["precio_base"]
