@@ -26,4 +26,4 @@ def home():
     return {"message": "API Vora Mar Glamping funcionando"}
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
