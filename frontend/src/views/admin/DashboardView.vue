@@ -72,7 +72,7 @@
     const confirmar = async (id) => {
         try { 
             await confirmarReserva(id)
-            fetchDashboard()
+            await fetchDashboard()
         } catch (error) { 
             console.log(error)
         }
@@ -81,7 +81,7 @@
     const cancelar = async (id) => {
         try { 
             await cancelarReserva(id)
-            fetchDashboard()
+            await fetchDashboard()
         } catch (error) { 
             console.log(error)
         }
@@ -131,6 +131,7 @@
                         scale: 1.03
                         transition: ease-in-out 0.3s
                     .botones
+                        @include mixins.flexbox($d: flex, $fd: row, $jc: center, $gap: 1rem )
                         align-items: center
                         .btn_cancelar   
                             padding: 1rem
