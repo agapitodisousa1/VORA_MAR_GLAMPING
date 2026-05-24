@@ -11,5 +11,5 @@ export const getDashboard = async () => {
 }
 
 export const confirmarReserva = async (id) => {
-    return await axios.put(`http://127.0.0.1:5000/api/dashboard/${id}`)
+    return await axios.put(`${import.meta.env.VITE_API_URL}/api/dashboard/${id}`)
 }
