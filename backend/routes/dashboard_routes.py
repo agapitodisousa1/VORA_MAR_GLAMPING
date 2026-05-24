@@ -40,7 +40,22 @@ def dashboard():
         FROM alojamientos
     """)
     total_alojamientos = cursor.fetchone()["total_alojamientos"]
-    cursor.execute("SELECT * FROM reservas JOIN alojamientos ON reservas.alojamiento_id = alojamientos.id")
+    cursor.execute("""
+        SELECT
+        reservas.id AS reserva_id,
+        usuarios.nombre AS usuario,
+        alojamientos.nombre AS alojamiento,
+        reservas.fecha_inicio,
+        reservas.fecha_fin,
+        reservas.estado
+        FROM reservas
+        JOIN usuarios
+        ON reservas.usuario_id =
+        usuarios.id
+        JOIN alojamientos
+        ON reservas.alojamiento_id =
+        alojamientos.id
+        """)
     reservas = cursor.fetchall()
     cursor.execute("SELECT COUNT(*) AS pendientes FROM reservas WHERE estado = 'pendiente'")
     pendientes = cursor.fetchone()["pendientes"]

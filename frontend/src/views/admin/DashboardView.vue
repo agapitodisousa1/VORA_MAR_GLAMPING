@@ -13,12 +13,12 @@
                 <p><strong>Reservas canceladas: </strong>{{ canceladas }}</p>
             </div>
             <div class="reservas">
-                <div class="card_reservas" v-for="reserva in reservas" :key="reserva.id + reserva.estado">
-                    <h2>{{ reserva.nombre }}</h2>
+                <div class="card_reservas" v-for="reserva in reservas" :key="reserva.reserva_id">
+                    <h2>{{ reserva.usuario }}</h2>
                     <p><strong>Entrada:</strong> {{ reserva.fecha_inicio }}</p>
                     <p><strong>Salida:</strong> {{ reserva.fecha_fin }}</p>
                     <p><strong>Estado:</strong> {{ reserva.estado }}</p>
-                    <p><strong>Alojamiento:</strong> {{ reserva.nombre }}</p>
+                    <p><strong>Alojamiento:</strong> {{ reserva.alojamiento }}</p>
                     <div class="botones">
                         <button class="btn_cancelar" v-if="reserva.estado != 'cancelada'" @click="cancelar(reserva.id)">Cancelar</button>
                         <button class="btn_confirmar" v-if="reserva.estado === 'pendiente'" @click="confirmar(reserva.id)">Confirmar</button>
