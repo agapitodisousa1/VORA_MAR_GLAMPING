@@ -16,8 +16,8 @@
                 <div class="btn_cancelar">
                     <button v-if="reserva.estado != 'cancelada'" @click="cancelar(reserva.id)">Cancelar</button>
                 </div>
-                </div>
-            </section>
+            </div>
+        </section>
         <Footer></Footer>
     </main>
   
