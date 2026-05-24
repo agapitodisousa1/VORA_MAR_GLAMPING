@@ -6,7 +6,7 @@ export const getDashboard = async () => {
 
     const token = localStorage.getItem("token")
 
-    return await axios.get(`${import.meta.env.VITE_API_URL}/api/dashboard`, { headers:{ 
+    return await axios.get(`${import.meta.env.VITE_API_URL}/api/dashboard/`, { headers:{ 
         Authorization:`Bearer ${token}` }})
 }
 
