@@ -41,6 +41,7 @@
     import { getDashboard } from '@/services/dashboardService';
     import { ref, onMounted } from 'vue';
     import { confirmarReserva } from '@/services/dashboardService';
+    import { cancelarReserva } from '@/services/reservaService';
 
     const stats = ref([])
     const reservas = ref([])
@@ -76,6 +77,14 @@
             console.log(error)
         }
 
+    }
+    const cancelar = async (id) => {
+        try { 
+            await cancelarReserva(id)
+            fetchDashboard()
+        } catch (error) { 
+            console.log(error)
+        }
     }
     onMounted(() => {
         fetchDashboard()
