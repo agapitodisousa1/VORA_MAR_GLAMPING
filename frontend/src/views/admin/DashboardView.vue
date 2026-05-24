@@ -20,8 +20,8 @@
                     <p><strong>Estado:</strong> {{ reserva.estado }}</p>
                     <p><strong>Alojamiento:</strong> {{ reserva.alojamiento }}</p>
                     <div class="botones">
-                        <button class="btn_cancelar" v-if="reserva.estado != 'cancelada'" @click="cancelar(reserva.id)">Cancelar</button>
-                        <button class="btn_confirmar" v-if="reserva.estado === 'pendiente'" @click="confirmar(reserva.id)">Confirmar</button>
+                        <button class="btn_cancelar" v-if="reserva.estado != 'cancelada'" @click="cancelar(reserva.reserva_id)">Cancelar</button>
+                        <button class="btn_confirmar" v-if="reserva.estado === 'pendiente'" @click="confirmar(reserva.reserva_id)">Confirmar</button>
                     </div>
             </div>
 
