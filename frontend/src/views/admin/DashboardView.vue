@@ -13,7 +13,7 @@
                 <p><strong>Reservas canceladas: </strong>{{ canceladas }}</p>
             </div>
             <div class="reservas">
-                <div class="card_reservas" v-for="reserva in reservas" :key="reserva.id">
+                <div class="card_reservas" v-for="reserva in reservas" :key="reserva.id + reserva.estado">
                     <h2>{{ reserva.nombre }}</h2>
                     <p><strong>Entrada:</strong> {{ reserva.fecha_inicio }}</p>
                     <p><strong>Salida:</strong> {{ reserva.fecha_fin }}</p>
