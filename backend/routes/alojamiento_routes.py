@@ -3,6 +3,7 @@ from db import get_conn
 
 alojamiento_bp = Blueprint("alojamientos", __name__)
 
+## ruta que realiza un get de los alojamientos para ser consumidos por el cliente.
 @alojamiento_bp.route("/", methods=["GET"])
 def get_all():
     conn = get_conn()
@@ -14,19 +15,3 @@ def get_all():
 
     return jsonify(data)
 
-@alojamiento_bp.route("/", methods=["POST"])
-def create():
-    data = request.json
-
-    conn = get_conn()
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        INSERT INTO alojamientos (nombre, tipo, capacidad, precio_base)
-        VALUES (%s, %s, %s, %s)
-    """, (
-        data["nombre"], data["tipo"], data["capacidad"], data["precio_base"]))
-    conn.commit()
-    cursor.close()
-    conn.close()
-    return jsonify({"message": "alojamiento creado"})

@@ -4,6 +4,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+## funcion que conecta a la base de datos obteniendo los datos de la conexion de las variables
+# de entorno, genera la conexion y comprueba que esta conectada, si lo esta devuelve conexion si no 
+# devuelve none.
 def get_conn():
     try:
         conexion = mysql.connector.connect(

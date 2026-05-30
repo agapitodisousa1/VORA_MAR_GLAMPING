@@ -44,6 +44,7 @@
     const goReservas = () => {
         router.push("/reservas")
     }
+    // funcion asincrona que se encarga de obtener los alojamientos de la API
     const fetchAlojamientos = async () => {
 
         try {
@@ -133,5 +134,15 @@
             .cards
                 .card
                     width: 80%
-
+    @media (min-width: 769px) and (max-width: 1024px)
+        main
+            .intro
+                .texto
+                    font-size: 15px
+                .imagen
+                    img 
+                        width: 400px
+            .cards
+                .card
+                    width: 40%
 </style> 

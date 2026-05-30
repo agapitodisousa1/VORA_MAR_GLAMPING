@@ -23,8 +23,8 @@
                
                 
             </div>
+            <h1>RESERVAS</h1>
             <div class="reservas">
-                <h1>RESERVAS</h1>
                 <div class="card_reservas" v-for="reserva in reservas" :key="reserva.reserva_id">
                     <h2>{{ reserva.usuario }}</h2>
                     <p><strong>Entrada:</strong> {{ reserva.fecha_inicio }}</p>
@@ -36,11 +36,8 @@
                         <button class="btn_confirmar" v-if="reserva.estado === 'pendiente'" @click="confirmar(reserva.reserva_id)">Confirmar</button>
                     </div>
             </div>
-
             </div>
-
         </section>
-        
         <Footer></Footer>
     </main>
 
@@ -64,6 +61,8 @@
     const confirmadas = ref(0)
     const canceladas = ref(0)
     const pendientes = ref(0)
+    // función que llama a getDashboard y que asigna lo obtenido por esta funcion
+    // a las variables anteriores que contienen las estadísticas 
     const fetchDashboard = async () => {
 
         try {
@@ -81,6 +80,8 @@
             console.log(error)
         }
     }
+    // funcion que llama a confirmarReserva, confirma mediante el id de la reserva 
+    // y actualiza el dashboard  
     const confirmar = async (id) => {
         try { 
             await confirmarReserva(id)
@@ -90,6 +91,7 @@
         }
 
     }
+    // funcion igual en estructura y forma de actuar a la anterior pero que cancela la reserva
     const cancelar = async (id) => {
         try { 
             await cancelarReserva(id)
@@ -98,6 +100,7 @@
             console.log(error)
         }
     }
+    // onMounted para que cargue con la view
     onMounted(() => {
         fetchDashboard()
     })

@@ -59,11 +59,11 @@
     const router = useRouter()
     const user = getUser()
     const menuOpen = ref(false)
-
+    // Cambia el menú hamburguesa a su valor contrario para desplegarlo o volverlo a esconder
     const toggle = () => {
         menuOpen.value = !menuOpen.value
-
     }
+    // funciones para acceder a las otras views
     const goMisReservas = () => {
         router.push("/mis-reservas")
     }
@@ -261,4 +261,70 @@
                 display: none
             .derecha
                 display: none   
+    @media (min-width: 769px) and (max-width: 1024px)
+        header
+            @include mixins.flexbox($d: flex , $fd: column , $jc: center , $gap: 1rem )
+            .menu 
+                animation: fadeIn ease-in 0.3s
+                display: block
+                @include mixins.flexbox($d: flex , $fd: column, $jc: center , $gap: 1rem )
+                text-align: center
+                max-width: 33%
+                padding: 1rem
+                margin-bottom: 16px
+                p
+                    cursor: pointer
+            .hamburguer
+                display: block
+                @include mixins.flexbox($d: flex , $fd: row, $jc: space-around , $gap: 1rem )
+                padding: 1rem
+                cursor: pointer
+                align-items: center
+                img
+                    width: 50px
+                    height: 50px 
+                .botones
+                    @include mixins.flexbox($d: flex , $fd: row , $jc: center , $gap: 0 )
+                    padding: 10px
+                    .botones_login
+                        @include mixins.flexbox($d: flex, $fd: row , $jc: center , $gap: 10px )
+                        text-align: center
+                        button
+                            @include mixins.flexbox($d: flex, $fd: row , $jc: center , $gap: 0 )
+                            border-radius: 12px
+                            cursor: pointer
+                            font-size: 10px
+                            padding: 6px 10px
+                            font-family: variables.$tipografia_texto
+                            border-radius: 10px
+                            background: variables.$color_boton_secundario
+                            color: variables.$color_background_secundario
+                            border: none
+                            &:hover
+                                background: variables.$color_hover_secundario
+                                transition: ease-in-out 0.2s
+                                scale: 1.05
+                    .botones_no_login
+                        @include mixins.flexbox($d: flex , $fd: row , $jc: center , $gap: 10px)
+                        button
+                            @include mixins.flexbox($d: flex, $fd: row , $jc: center , $gap: 0 )
+                            font-size: 10px
+                            border-radius: 12px
+                            cursor: pointer
+                            padding: 6px 10px
+                            font-family: variables.$tipografia_texto
+                            background: variables.$color_boton_secundario
+                            color: variables.$color_background_secundario
+                            border: none
+                            &:hover
+                                background: variables.$color_hover_secundario
+                                transition: ease-in-out 0.2s
+                                scale: 1.05  
+            .izquierda 
+                display: none
+            .derecha
+                display: none
+            .logo
+                display: none
+
 </style>

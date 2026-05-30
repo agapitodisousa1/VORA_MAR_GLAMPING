@@ -4,6 +4,14 @@ from datetime import datetime
 
 reserva_bp = Blueprint("reservas", __name__)
 
+
+## crea una reserva con post primero comprueba si hay conflicto con las reservas que ya hay 
+# en la bd. luego se comprueba el precio base para poder calcular el precio total de la estancia.
+# despues las fechas son convertidas a objetos tipo fecha mediante datetime.strptime().
+# primero valida que la fecha sea posterior a la actual, luego valida que la de final sea posterior 
+# a la actual. Una vez hecho esto se calcula la diferencia entre las dos fechas para establecer 
+# la estancia. Despues se calcula el precio total. Al final se almacena en la bd con un insert into
+# con estado pendiente y devuelve un 201 y el precio total.
 @reserva_bp.route("/", methods=["POST"])
 def crear_reserva():
 
@@ -51,6 +59,15 @@ def crear_reserva():
         data["fecha_fin"],
         "%Y-%m-%d"
     )
+    hoy = datetime.now()
+
+    if inicio.date() < hoy.date():
+        cursor.close()
+        conn.close()
+        return jsonify({
+            "error": "No se pueden realizar reservas en fechas anteriores a la actual"
+        }), 400
+   
     if fin <= inicio:
         cursor.close()
         conn.close()
@@ -100,7 +117,7 @@ def crear_reserva():
         "precio_total": precio_total
     }), 201
 
-
+## realiza un get a todas las reservas.
 @reserva_bp.route("/", methods=["GET"])
 def get_reservas():
     conn = get_conn()
@@ -111,7 +128,7 @@ def get_reservas():
     conn.close()
 
     return jsonify(data)
-
+## realiza un get a las reserva del usuario actual ordenado por fecha de inicio.
 @reserva_bp.route("/reserva/<int:id>", methods=["GET"])
 def get_mis_reservas(id):
     conn = get_conn()
@@ -123,6 +140,8 @@ def get_mis_reservas(id):
     
     return jsonify(data)
 
+
+## realiza un put es decir un update con el id pasado en la ruta y actualiza el estado a cancelada.
 @reserva_bp.route("/<int:id>", methods=["PUT"])
 def cancelar_reserva(id):
 

@@ -51,6 +51,9 @@
     const goRegister = () => {
         router.push("/register")
     }
+    // funcion para loguearse asincrona que obtiene una repuesta de la función loginRequest que 
+    // accede a la API de autenticación y obtiene el token y el usuario y lo guarda en el localStorage. 
+
     const login = async () => {
     
     errorMessage.value = ""
@@ -148,5 +151,13 @@
                                 padding: 10px 1rem  
                             .btn_register
                                 padding: 10px 1rem
+    @media (min-width: 769px) and (max-width: 1024px)
+        .main
+            .login
+                height: 84vh
+                .container
+                    width: 60%  
+                    .form
+                        padding: 2rem
                     
 </style>

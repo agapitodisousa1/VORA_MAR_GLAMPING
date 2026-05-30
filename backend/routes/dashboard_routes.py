@@ -4,6 +4,11 @@ from utils.auth import admin_required
 
 dashboard_bp = Blueprint("dashboard", __name__)
 
+## realiza una peticion get comprobando que el usuario sea admin, si lo es realiza las consultas
+# de las estadísticas de la bbdd entre ellas el total de reservas con un COUNT, los ingresos con un 
+# SUM, el total de usuarios con COUNT, el total de alojamientos con un COUNT, las reservas con un 
+# SELECT y un JOIN con usuarios y con alojamientos. finalmente obtiene las confirmadas, canceladas y
+# pendientes con un SELECT-WHERE y devuelve las estadisticas y las reservas.
 
 @dashboard_bp.route("/", methods=["GET"])
 def dashboard():
@@ -76,6 +81,8 @@ def dashboard():
         "confirmadas": confirmadas
     })
 
+## realiza un put a reservas por lo que hace un UPDATE a reservas y la cambia con SET a confirmadas 
+# con el id que se le pasa en la ruta.
 @dashboard_bp.route("/<int:id>", methods=["PUT"])
 def confirmar_reserva(id):
 

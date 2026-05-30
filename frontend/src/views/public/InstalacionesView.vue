@@ -6,7 +6,7 @@
                 <div class="texto_spa">
                     <h1>SPA</h1>
                     <p>Disfruta de nuestro spa premium y de todas sus comodidades incluido en el precio total
-
+                        
                     </p>
                 </div>
                 <div class="imagen_spa">

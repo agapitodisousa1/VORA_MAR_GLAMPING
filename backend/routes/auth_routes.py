@@ -6,6 +6,9 @@ from utils.functions_jwt import write_token, validate_token
 
 auth_bp = Blueprint("auth", __name__)
 
+## ruta que realiza un post a la api que comprueba que haya conexion a la bbdd,
+# comprueba que el usuario no exista y si no existe realiza el insert into a la bbdd
+# con los datos, es decir nombre, email, password que es hasheado, telefono y rol. 
 @auth_bp.route("/register", methods=["POST"])
 def register():
     try:
@@ -52,6 +55,10 @@ def register():
             "message": str(e)
         }), 500
 
+# ruta que hace inicio de sesion. comprueba que email y password hayan sido introducidos,
+# devuelve una respuesta 500 si no hay conexion a la bbdd, comprueba que exista primero usuario
+# y luego contraseña y si la hay genera un token con write_token, y devuelve el user con su id,
+# rol, email y nombre.
 @auth_bp.route("/login", methods=["POST"])
 def login():
 

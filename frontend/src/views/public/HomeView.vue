@@ -70,6 +70,7 @@
     import Header from '@/components/Header.vue';
     import Footer from '@/components/Footer.vue';
     import { useRouter } from 'vue-router';
+    // funciones para acceder a las otras views.
     const router = useRouter()
     const goAlojamientos = () => {
         router.push("/alojamientos")

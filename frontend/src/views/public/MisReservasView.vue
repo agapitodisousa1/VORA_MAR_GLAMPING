@@ -35,7 +35,10 @@
         router.push("/reservas")
     }   
     const reservas = ref([])
+    // variable que recoge el usuario actual del localStorage           
     const user = JSON.parse(localStorage.getItem("user"))
+    // funcion que llama a getReservasUsuario y asigna las reservas a la variable reservas
+    // que se recorre con un v-for para presentar las reservas en cards
     const fetchReservas = async () => {
         try {
             const response = await getReservasUsuario(user.id)
@@ -44,6 +47,7 @@
             console.log(error)
         }
     }
+    // funcion que llama a cancelarReserva que cancela la reserva seleccionada y actualiza la pagina
     const cancelar = async (id) => {
 
         try {
@@ -53,6 +57,7 @@
             console.log(error)
         }
     }
+    // onMounted para que cargue las reservas nada más cargar la view
     onMounted(() => {
 
         fetchReservas()
@@ -132,7 +137,11 @@
                 flex-wrap: none
                 .card_reservas
                     width: 100%
-                    
+    @media (min-width: 769px) and (max-width: 1024px)
+        main
+            .mis_reservas
+                height: 78vh
+
                 
             
 </style>

@@ -104,7 +104,11 @@
     const huespedes = ref(1)
     const successMessage = ref("")
     const errorMessage = ref("")
+    // variable que recoge el usuario actual
     const user = JSON.parse(localStorage.getItem("user"))
+    // función que llama a createReserva y recopila los datos del formulario. Si tiene éxito 
+    // asigna un mensaje de éxito a la variable successMessage
+    // si galla asigna un mensaje de error a la variable errorMessage
     const reservar = async () => {
         successMessage.value = ""
         errorMessage.value = ""
@@ -228,4 +232,10 @@
                 .errores
                     p
                         width: 50%
+    @media (min-width: 769px) and (max-width: 1024px)
+        main
+            .main
+                .form
+                    .formulario
+                        @include mixins.flexbox($d: flex, $fd: column, $jc: center, $gap: 1rem)
 </style>    

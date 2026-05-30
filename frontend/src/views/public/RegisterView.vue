@@ -66,7 +66,9 @@
     const repetirPassword = ref("")
     const errorMessage = ref("")
     const successMessage = ref("")
-    
+    // funcion asincrona para registrarse, comprueba que el password sea lo suficientemente grande, 
+    // comprueba que el password y el password repetido sea iguales y luego hace la petición mediante 
+    // registerRequest con lo que postea los datos obtenidos. tambien asigna mensajes de exito y error.
     const register = async () => {
         errorMessage.value = ""
         successMessage.value = ""
@@ -176,4 +178,12 @@
                             .btn_register
                                 padding: 10px 
                                 font-size: 12px
+    @media (min-width: 769px) and (max-width: 1024px)
+        .main
+            .login
+                height: 84vh
+                .container
+                    width: 60%
+                    .form
+                        padding: 2rem
 </style>
