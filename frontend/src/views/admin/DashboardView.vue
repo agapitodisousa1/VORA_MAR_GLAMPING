@@ -77,7 +77,12 @@
             confirmadas.value = response.data.confirmadas
             canceladas.value = response.data.canceladas
         } catch (error) {
-            console.log(error)
+            if (error.response?.status === 401) {
+                localStorage.removeItem("token")
+                localStorage.removeItem("user")
+                alert("La sesión ha expirado")
+                router.push("/login")
+            }
         }
     }
     // funcion que llama a confirmarReserva, confirma mediante el id de la reserva 
