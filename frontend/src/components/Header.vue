@@ -122,7 +122,6 @@
             display: none
         .izquierda
             @include mixins.flexbox($d: flex , $fd: row , $jc: flex-start, $gap: 8rem)
-            width: 33%
             .reservas
                 padding: 1rem
                 margin-top:10px

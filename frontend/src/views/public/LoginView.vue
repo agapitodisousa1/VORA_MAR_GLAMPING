@@ -90,7 +90,8 @@
             @include mixins.flexbox($d: flex , $fd: column, $jc: center , $gap: 1rem )
             align-items: center
             background-color: variables.$color_background_secundario
-            padding-bottom: 2.8rem  
+            padding-bottom: 2.8rem 
+            height: 100vh 
             .title 
                 text-align: center
                 font-size: 1.5rem

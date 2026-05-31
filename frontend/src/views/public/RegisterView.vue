@@ -116,6 +116,7 @@
             align-items: center
             background-color: variables.$color_background_secundario
             padding-bottom: 2.8rem  
+            
             .title 
                 text-align: center
                 font-size: 1.5rem
